@@ -1,0 +1,2 @@
+{"/home/k3v1n/Documents/swk-jest-testing/src/SearchClient/SearchClient.js": {"path":"/home/k3v1n/Documents/swk-jest-testing/src/SearchClient/SearchClient.js","statementMap":{"0":{"start":{"line":3,"column":8},"end":{"line":3,"column":35}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":2,"column":4},"end":{"line":2,"column":5}},"loc":{"start":{"line":2,"column":18},"end":{"line":4,"column":5}},"line":2}},"branchMap":{},"s":{"0":2},"f":{"0":2},"b":{},"_coverageSchema":"1a1c01bbd47fc00a2c39e90264f33305004495a9","hash":"8a5e3aec71ea6aa3a2b375b339f8240c1739285b"}
+}
