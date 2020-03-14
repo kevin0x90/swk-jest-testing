@@ -1,5 +1,9 @@
 export default class SearchClient {
     search(query) {
-        return Promise.resolve([]);
+        if (typeof query !== 'string' || query.trim().length === 0) {
+            return Promise.resolve([]);
+        }
+
+        return fetch(`/api/search?query=${query}`).then(response => response.json());
     }
 };
