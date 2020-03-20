@@ -7,22 +7,18 @@ describe('SearchComponent', () => {
 
     beforeEach(() => {
         jest.useFakeTimers();
-        jest.clearAllMocks();
     });
 
     it('should debounce inputs', () => {
         expect.assertions(2);
-        const searchClient = new SearchClient();
-        searchClient.search.mockResolvedValue(['google.com']);
-        const searchComponent = new SearchComponent(searchClient);
+        const { searchComponent, searchClient } = createSearchComponent();
 
-        let searchPromise = searchComponent.search('g');
-        searchPromise = searchComponent.search('go');
-        searchPromise =searchComponent.search('goo');
-        searchPromise =searchComponent.search('goog');
-        searchPromise =searchComponent.search('googl');
-
-        jest.runAllTimers();
+        searchComponent.search('g');
+        searchComponent.search('go');
+        searchComponent.search('goo');
+        searchComponent.search('goog');
+        const searchPromise = searchComponent.search('googl');
+        jest.advanceTimersByTime(200);
 
         return searchPromise.then(() => {
             expect(searchClient.search).toHaveBeenCalledTimes(1);
@@ -34,17 +30,25 @@ describe('SearchComponent', () => {
         expect.assertions(1);
         const mockEventCallback = jest.fn();
         document.addEventListener('searchComponent:response', mockEventCallback);
-
-        const searchClient = new SearchClient();
-        searchClient.search.mockResolvedValue(['google.com']);
-        const searchComponent = new SearchComponent(searchClient);
+        const { searchComponent } = createSearchComponent();
 
         const searchPromise = searchComponent.search('google');
-        jest.runAllTimers();
+        jest.advanceTimersByTime(200);
 
         return searchPromise.then(() => {
             expect(mockEventCallback).toHaveBeenCalledWith(
                 new CustomEvent('searchComponent:response', { detail: ['google.com'] }));
         });
     });
+
+    function createSearchComponent() {
+        const searchClient = new SearchClient();
+        searchClient.search.mockResolvedValue(['google.com']);
+        const searchComponent = new SearchComponent(searchClient);
+
+        return {
+            searchClient,
+            searchComponent
+        };
+    }
 });
