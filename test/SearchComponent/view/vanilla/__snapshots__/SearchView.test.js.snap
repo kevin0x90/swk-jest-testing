@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vanilla javascript search view should render a search box 1`] = `"<input type=\\"search\\" placeholder=\\"some placehodler text\\" class=\\"search-box\\">"`;

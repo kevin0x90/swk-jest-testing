@@ -4,7 +4,8 @@
   "description": "Samples for jest testing",
   "main": "index.js",
   "scripts": {
-    "test": "jest -c jest.config.unit.js"
+    "test": "jest -c jest.config.unit.js",
+    "update-snapshots": "jest -uc jest.config.unit.js"
   },
   "repository": {
     "type": "git",
