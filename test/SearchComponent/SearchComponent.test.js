@@ -41,9 +41,32 @@ describe('SearchComponent', () => {
         });
     });
 
-    function createSearchComponent() {
-        const searchClient = new SearchClient();
+    it('should fire an error event when search request has an error', () => {
+        expect.assertions(1);
+        const mockEventCallback = jest.fn();
+        document.addEventListener('searchComponent:error', mockEventCallback);
+        const { searchComponent } = createSearchComponent(setupMockReject);
+
+        const searchPromise = searchComponent.search('safsadfasfasf');
+        jest.advanceTimersByTime(200);
+
+        return searchPromise.then(() => {
+            expect(mockEventCallback).toHaveBeenCalledWith(
+                new CustomEvent('searchComponent:error', { detail: new Error('an error occured') }));
+        });
+    });
+
+    function setupMockResolve(searchClient) {
         searchClient.search.mockResolvedValue(['google.com']);
+    }
+
+    function setupMockReject(searchClient) {
+        searchClient.search.mockRejectedValue(new Error('an error occured'));
+    }
+
+    function createSearchComponent(setupSearchClientMock = setupMockResolve) {
+        const searchClient = new SearchClient();
+        setupSearchClientMock(searchClient);
         const searchComponent = new SearchComponent(searchClient);
 
         return {
