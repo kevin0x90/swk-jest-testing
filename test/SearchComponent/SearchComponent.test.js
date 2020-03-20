@@ -7,23 +7,29 @@ describe('SearchComponent', () => {
 
     beforeEach(() => {
         jest.useFakeTimers();
+        jest.clearAllMocks();
     });
 
     it('should debounce inputs', () => {
         const searchClient = new SearchClient();
+        searchClient.search.mockResolvedValue(['google.com']);
         const searchComponent = new SearchComponent(searchClient);
-        searchComponent.search('g');
-        searchComponent.search('go');
-        searchComponent.search('goo');
-        searchComponent.search('goog');
-        searchComponent.search('googl');
 
-        jest.advanceTimersByTime(200);
-        expect(searchClient.search).toHaveBeenCalledTimes(1);
-        expect(searchClient.search).toHaveBeenNthCalledWith(1, 'googl');
+        let searchPromise = searchComponent.search('g');
+        searchPromise = searchComponent.search('go');
+        searchPromise =searchComponent.search('goo');
+        searchPromise =searchComponent.search('goog');
+        searchPromise =searchComponent.search('googl');
+
+        jest.runAllTimers();
+
+        return searchPromise.then(() => {
+            expect(searchClient.search).toHaveBeenCalledTimes(1);
+            expect(searchClient.search).toHaveBeenNthCalledWith(1, 'googl');
+        });
     });
 
-    it('should fire an event when a search response is received', async () => {
+    it('should fire an event when a search response is received', () => {
         const mockEventCallback = jest.fn();
         document.addEventListener('searchComponent:response', mockEventCallback);
 
@@ -31,9 +37,12 @@ describe('SearchComponent', () => {
         searchClient.search.mockResolvedValue(['google.com']);
         const searchComponent = new SearchComponent(searchClient);
 
-        await searchComponent.search('google');
+        const searchPromise = searchComponent.search('google');
         jest.runAllTimers();
 
-        expect(mockEventCallback).toHaveBeenCalledWith({ detail: ['google.com'] });
+        return searchPromise.then(() => {
+            expect(mockEventCallback).toHaveBeenCalledWith(
+                new CustomEvent('searchComponent:response', { detail: ['google.com'] }));
+        });
     });
 });
