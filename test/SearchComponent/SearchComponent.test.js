@@ -11,6 +11,7 @@ describe('SearchComponent', () => {
     });
 
     it('should debounce inputs', () => {
+        expect.assertions(2);
         const searchClient = new SearchClient();
         searchClient.search.mockResolvedValue(['google.com']);
         const searchComponent = new SearchComponent(searchClient);
@@ -30,6 +31,7 @@ describe('SearchComponent', () => {
     });
 
     it('should fire an event when a search response is received', () => {
+        expect.assertions(1);
         const mockEventCallback = jest.fn();
         document.addEventListener('searchComponent:response', mockEventCallback);
 
