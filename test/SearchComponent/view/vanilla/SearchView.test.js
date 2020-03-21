@@ -29,9 +29,11 @@ describe('Vanilla javascript search view', () => {
     function renderSearchView() {
         const searchComponent = new SearchComponent();
         const searchView = new SearchView(searchComponent, 'some placehodler text');
-        const viewContainer = document.getElementById('searchBox');
 
-        searchView.render(viewContainer);
+        const searchViewElement = searchView.render();
+
+        const viewContainer = document.getElementById('searchBox');
+        viewContainer.appendChild(searchViewElement);
 
         return {
             searchComponent,

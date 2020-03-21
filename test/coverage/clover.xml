@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584738010162" clover="3.2.0">
-  <project timestamp="1584738010165" name="All files">
-    <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9" elements="31" coveredelements="31" complexity="0" loc="18" ncloc="18" packages="3" files="3" classes="3"/>
+<coverage generated="1584816074888" clover="3.2.0">
+  <project timestamp="1584816074888" name="All files">
+    <metrics statements="21" coveredstatements="20" conditionals="6" coveredconditionals="5" methods="9" coveredmethods="9" elements="36" coveredelements="34" complexity="0" loc="21" ncloc="21" packages="3" files="3" classes="3"/>
     <package name="SearchClient">
-      <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-      <file name="SearchClient.js" path="/home/k3v1n/Documents/swk-jest-testing/src/SearchClient/SearchClient.js">
-        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="3" count="7" type="cond" truecount="4" falsecount="0"/>
+      <metrics statements="6" coveredstatements="5" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="2"/>
+      <file name="SearchClient.js" path="C:\Users\k3v1n\Documents\Projekte\swk-jest-testing\src\SearchClient\SearchClient.js">
+        <metrics statements="6" coveredstatements="5" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="2"/>
+        <line num="3" count="7" type="cond" truecount="2" falsecount="0"/>
         <line num="4" count="6" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
       </file>
     </package>
     <package name="SearchComponent">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <file name="SearchComponent.js" path="/home/k3v1n/Documents/swk-jest-testing/src/SearchComponent/SearchComponent.js">
+      <file name="SearchComponent.js" path="C:\Users\k3v1n\Documents\Projekte\swk-jest-testing\src\SearchComponent\SearchComponent.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
@@ -25,7 +28,7 @@
     </package>
     <package name="SearchComponent.view.vanilla">
       <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="SearchView.js" path="/home/k3v1n/Documents/swk-jest-testing/src/SearchComponent/view/vanilla/SearchView.js">
+      <file name="SearchView.js" path="C:\Users\k3v1n\Documents\Projekte\swk-jest-testing\src\SearchComponent\view\vanilla\SearchView.js">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>

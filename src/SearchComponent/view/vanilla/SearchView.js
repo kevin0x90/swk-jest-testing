@@ -8,13 +8,13 @@ export default class SearchView {
         this.searchComponent.search(key);
     }
 
-    render(containerElement) {
+    render() {
         const searchViewElement = document.createElement('input');
         searchViewElement.setAttribute('type', 'search');
         searchViewElement.setAttribute('placeholder', this.placeHolderText);
         searchViewElement.classList.add('search-box');
         searchViewElement.addEventListener('keydown', this.searchEventHandler.bind(this));
 
-        containerElement.appendChild(searchViewElement);
+        return searchViewElement;
     }
 };

@@ -6,7 +6,7 @@ const SEARCH_ERROR_EVENT_NAME = 'searchComponent:error';
 export default class SearchComponent {
 
     constructor(searchClient) {
-        this.debouncedSearch = debounce(searchClient.search, 200);
+        this.debouncedSearch = debounce(searchClient.search, 200, { accumulate: true });
     }
 
     search(query) {
@@ -16,6 +16,8 @@ export default class SearchComponent {
     }
 
     emitSearchResponseEvent(searchResponse) {
+        console.log('search response', searchResponse);
+
         document.dispatchEvent(new CustomEvent(SEARCH_RESPONSE_EVENT_NAME, {
             detail: searchResponse
         }));

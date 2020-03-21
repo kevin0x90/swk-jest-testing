@@ -1,5 +1,10 @@
 export default class SearchClient {
-    search(query) {
+    search(keystrokes) {
+        if (!Array.isArray(keystrokes)) {
+          return Promise.resolve([]);
+        }
+
+        const query = keystrokes.flat().join('')
         if (typeof query !== 'string' || query.trim().length === 0) {
             return Promise.resolve([]);
         }

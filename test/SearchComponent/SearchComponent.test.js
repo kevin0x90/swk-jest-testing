@@ -14,15 +14,15 @@ describe('SearchComponent', () => {
         const { searchComponent, searchClient } = createSearchComponent();
 
         searchComponent.search('g');
-        searchComponent.search('go');
-        searchComponent.search('goo');
-        searchComponent.search('goog');
-        const searchPromise = searchComponent.search('googl');
+        searchComponent.search('o');
+        searchComponent.search('o');
+        searchComponent.search('g');
+        const searchPromise = searchComponent.search('l');
         jest.advanceTimersByTime(200);
 
         return searchPromise.then(() => {
             expect(searchClient.search).toHaveBeenCalledTimes(1);
-            expect(searchClient.search).toHaveBeenNthCalledWith(1, 'googl');
+            expect(searchClient.search).toHaveBeenNthCalledWith(1, [['g'], ['o'], ['o'], ['g'], ['l']]);
         });
     });
 

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest -c jest.config.unit.js",
-    "update-snapshots": "jest -uc jest.config.unit.js"
+    "update-snapshots": "jest -uc jest.config.unit.js",
+    "storybook": "start-storybook"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,11 @@
     "@babel/core": "^7.8.7",
     "@babel/plugin-transform-async-to-generator": "^7.8.3",
     "@babel/preset-env": "^7.8.7",
+    "@storybook/html": "^5.3.17",
     "babel-jest": "^25.1.0",
+    "babel-loader": "^8.1.0",
     "core-js": "^3.6.4",
+    "fetch-mock": "^9.2.1",
     "jest": "^25.1.0",
     "jest-fetch-mock": "^3.0.3"
   },
