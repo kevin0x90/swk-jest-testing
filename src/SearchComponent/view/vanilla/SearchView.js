@@ -1,7 +1,7 @@
 export default class SearchView {
-    constructor(searchComponent, placeHolderText) {
+    constructor(searchComponent, placeholderText) {
         this.searchComponent = searchComponent;
-        this.placeHolderText = placeHolderText;
+        this.placeholderText = placeholderText;
     }
 
     searchEventHandler({ key }) {
@@ -11,7 +11,7 @@ export default class SearchView {
     render() {
         const searchViewElement = document.createElement('input');
         searchViewElement.setAttribute('type', 'search');
-        searchViewElement.setAttribute('placeholder', this.placeHolderText);
+        searchViewElement.setAttribute('placeholder', this.placeholderText);
         searchViewElement.classList.add('search-box');
         searchViewElement.addEventListener('keydown', this.searchEventHandler.bind(this));
 

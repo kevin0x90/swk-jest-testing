@@ -1,44 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584816074888" clover="3.2.0">
-  <project timestamp="1584816074888" name="All files">
-    <metrics statements="21" coveredstatements="20" conditionals="6" coveredconditionals="5" methods="9" coveredmethods="9" elements="36" coveredelements="34" complexity="0" loc="21" ncloc="21" packages="3" files="3" classes="3"/>
-    <package name="SearchClient">
-      <metrics statements="6" coveredstatements="5" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="2"/>
-      <file name="SearchClient.js" path="C:\Users\k3v1n\Documents\Projekte\swk-jest-testing\src\SearchClient\SearchClient.js">
-        <metrics statements="6" coveredstatements="5" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="2"/>
-        <line num="3" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="4" count="6" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="cond" truecount="3" falsecount="1"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1584825745113" clover="3.2.0">
+  <project timestamp="1584825745113" name="All files">
+    <metrics statements="10" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="2" elements="16" coveredelements="7" complexity="0" loc="10" ncloc="10" packages="2" files="2" classes="2"/>
     <package name="SearchComponent">
-      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <file name="SearchComponent.js" path="C:\Users\k3v1n\Documents\Projekte\swk-jest-testing\src\SearchComponent\SearchComponent.js">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="13" count="7" type="stmt"/>
-        <line num="19" count="6" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
+      <metrics statements="7" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="SearchComponent.js" path="C:\Users\Alexander\code\swk-jest-testing\src\SearchComponent\SearchComponent.js">
+        <metrics statements="7" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="SearchComponent.view.vanilla">
-      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="SearchView.js" path="C:\Users\k3v1n\Documents\Projekte\swk-jest-testing\src\SearchComponent\view\vanilla\SearchView.js">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="3" count="2" type="stmt"/>
+    <package name="SearchComponent.view.react">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="SearchView.jsx" path="C:\Users\Alexander\code\swk-jest-testing\src\SearchComponent\view\react\SearchView.jsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
       </file>
     </package>
   </project>

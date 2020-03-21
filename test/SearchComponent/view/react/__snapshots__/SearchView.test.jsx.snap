@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`React search view should render a search box 1`] = `
+<input
+  className="search-box"
+  onKeyDown={[Function]}
+  type="search"
+/>
+`;
