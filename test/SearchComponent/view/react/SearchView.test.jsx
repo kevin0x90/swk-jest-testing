@@ -8,7 +8,7 @@ jest.mock('../../../../src/SearchComponent/SearchComponent');
 
 describe('React search view', () => {
   it('should render a search box', () => {
-    const component = renderer.create(<SearchView />);
+    const component = renderer.create(<SearchView searchComponent={new SearchComponent()} />);
 
     expect(component.toJSON()).toMatchSnapshot();
   });
@@ -16,15 +16,15 @@ describe('React search view', () => {
   it('should search when user enters an input', () => {
     const { searchComponent, searchViewElement } = renderSearchView();
 
-    fireEvent.keyDown(searchViewElement, { key: 'g' });
+    fireEvent.change(searchViewElement, { target: { value: 'g' } });
 
     expect(searchComponent.search).toHaveBeenCalledWith('g');
   });
 
   function renderSearchView() {
         const searchComponent = new SearchComponent();
-        const placeholder = 'some placehodler text';
-        const props = { searchComponent, placeholder };
+        const placeholderText = 'some placeholder text';
+        const props = { searchComponent, placeholderText };
         const { container } = render(<SearchView {...props} />);
 
         return {

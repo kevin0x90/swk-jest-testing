@@ -1,5 +1,5 @@
 export default class SearchView {
-    constructor(searchComponent, placeholderText) {
+    constructor(searchComponent, placeholderText = '') {
         this.searchComponent = searchComponent;
         this.placeholderText = placeholderText;
     }

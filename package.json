@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest -c jest.config.unit.js",
     "update-snapshots": "jest -uc jest.config.unit.js",
-    "storybook": "start-storybook"
+    "storybook-vanilla": "start-storybook -c .storybook/vanilla",
+    "storybook-react": "start-storybook -c .storybook/react"
   },
   "repository": {
     "type": "git",

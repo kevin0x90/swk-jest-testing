@@ -3,7 +3,8 @@
 exports[`React search view should render a search box 1`] = `
 <input
   className="search-box"
-  onKeyDown={[Function]}
+  onChange={[Function]}
+  placeholder=""
   type="search"
 />
 `;

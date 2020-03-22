@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default ({ searchComponent, placeholderText }) => {
-  const searchEventHandler = ({ key }) => {
-    searchComponent.search(key);
+export default ({ searchComponent, placeholderText = '' }) => {
+  const searchEventHandler = ({ currentTarget }) => {
+    searchComponent.search(currentTarget.value);
   };
 
   return (
@@ -10,7 +10,7 @@ export default ({ searchComponent, placeholderText }) => {
       className="search-box"
       type="search"
       placeholder={placeholderText}
-      onKeyDown={searchEventHandler}
+      onChange={searchEventHandler}
     />
   );
 };

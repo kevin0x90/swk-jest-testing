@@ -3,6 +3,8 @@ import { debounce } from 'throttle-debounce';
 const SEARCH_RESPONSE_EVENT_NAME = 'searchComponent:response';
 const SEARCH_ERROR_EVENT_NAME = 'searchComponent:error';
 
+const dispatchEvent = (eventName, payload) => document.dispatchEvent(new CustomEvent(eventName, { detail: payload }));
+
 export default class SearchComponent {
 
     constructor(searchClient) {
@@ -18,16 +20,10 @@ export default class SearchComponent {
     }
 
     emitSearchResponseEvent(searchResponse) {
-        console.log('search response', searchResponse);
-
-        document.dispatchEvent(new CustomEvent(SEARCH_RESPONSE_EVENT_NAME, {
-            detail: searchResponse
-        }));
+      dispatchEvent(SEARCH_RESPONSE_EVENT_NAME, searchResponse);
     }
 
     emitSearchErrorEvent(searchError) {
-        document.dispatchEvent(new CustomEvent(SEARCH_ERROR_EVENT_NAME, {
-            detail: searchError
-        }));
+      dispatchEvent(SEARCH_ERROR_EVENT_NAME, searchError);
     }
 }
