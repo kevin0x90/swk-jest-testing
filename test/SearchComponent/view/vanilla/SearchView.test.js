@@ -19,12 +19,19 @@ describe('Vanilla javascript search view', () => {
     it('should search when user enters an input', () => {
         const { searchViewElement, searchComponent } = renderSearchView();
 
-        searchViewElement.dispatchEvent(new KeyboardEvent('keydown', {
-            key: 'g'
-        }));
+        simulateInput(searchViewElement, 'g');
+        simulateInput(searchViewElement, 'go');
+        simulateInput(searchViewElement, 'goo');
 
-        expect(searchComponent.search).toHaveBeenCalledWith('g');
+        expect(searchComponent.search).toHaveBeenCalledWith('goo');
     });
+
+    function simulateInput(element, inputValue) {
+        element.value = inputValue;
+        element.dispatchEvent(new InputEvent('input', {
+            data: inputValue
+        }));
+    }
 
     function renderSearchView() {
         const searchComponent = new SearchComponent();

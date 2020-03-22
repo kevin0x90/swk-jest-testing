@@ -1,4 +1,4 @@
-import debounce from 'debounce-promise';
+import { debounce } from 'throttle-debounce';
 
 const SEARCH_RESPONSE_EVENT_NAME = 'searchComponent:response';
 const SEARCH_ERROR_EVENT_NAME = 'searchComponent:error';
@@ -6,13 +6,15 @@ const SEARCH_ERROR_EVENT_NAME = 'searchComponent:error';
 export default class SearchComponent {
 
     constructor(searchClient) {
-        this.debouncedSearch = debounce(searchClient.search, 200, { accumulate: true });
+        this.debouncedSearch = debounce(200, (query) => {
+          searchClient.search(query)
+            .then(this.emitSearchResponseEvent)
+            .catch(this.emitSearchErrorEvent);
+        });
     }
 
     search(query) {
-        return this.debouncedSearch(query)
-            .then(this.emitSearchResponseEvent)
-            .catch(this.emitSearchErrorEvent);
+      this.debouncedSearch(query);
     }
 
     emitSearchResponseEvent(searchResponse) {

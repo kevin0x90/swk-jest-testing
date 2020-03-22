@@ -4,8 +4,8 @@ export default class SearchView {
         this.placeholderText = placeholderText;
     }
 
-    searchEventHandler({ key }) {
-        this.searchComponent.search(key);
+    searchEventHandler({ currentTarget }) {
+        this.searchComponent.search(currentTarget.value);
     }
 
     render() {
@@ -13,7 +13,7 @@ export default class SearchView {
         searchViewElement.setAttribute('type', 'search');
         searchViewElement.setAttribute('placeholder', this.placeholderText);
         searchViewElement.classList.add('search-box');
-        searchViewElement.addEventListener('keydown', this.searchEventHandler.bind(this));
+        searchViewElement.addEventListener('input', this.searchEventHandler.bind(this));
 
         return searchViewElement;
     }

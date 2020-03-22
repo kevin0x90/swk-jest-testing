@@ -14,46 +14,44 @@ describe('SearchComponent', () => {
         const { searchComponent, searchClient } = createSearchComponent();
 
         searchComponent.search('g');
-        searchComponent.search('o');
-        searchComponent.search('o');
-        searchComponent.search('g');
-        const searchPromise = searchComponent.search('l');
+        searchComponent.search('go');
+        searchComponent.search('goo');
+        searchComponent.search('goog');
+        searchComponent.search('googl');
         jest.advanceTimersByTime(200);
 
-        return searchPromise.then(() => {
-            expect(searchClient.search).toHaveBeenCalledTimes(1);
-            expect(searchClient.search).toHaveBeenNthCalledWith(1, [['g'], ['o'], ['o'], ['g'], ['l']]);
-        });
+        expect(searchClient.search).toHaveBeenCalledTimes(1);
+        expect(searchClient.search).toHaveBeenNthCalledWith(1, 'googl');
     });
 
-    it('should fire an event when a search response is received', () => {
+    it('should fire an event when a search response is received', (done) => {
         expect.assertions(1);
         const mockEventCallback = jest.fn();
         document.addEventListener('searchComponent:response', mockEventCallback);
+        document.addEventListener('searchComponent:response', () => {
+          expect(mockEventCallback).toHaveBeenCalledWith(
+            new CustomEvent('searchComponent:response', { detail: ['google.com'] }));
+          done();
+        });
         const { searchComponent } = createSearchComponent();
 
-        const searchPromise = searchComponent.search('google');
+        searchComponent.search('google');
         jest.advanceTimersByTime(200);
-
-        return searchPromise.then(() => {
-            expect(mockEventCallback).toHaveBeenCalledWith(
-                new CustomEvent('searchComponent:response', { detail: ['google.com'] }));
-        });
     });
 
-    it('should fire an error event when search request has an error', () => {
+    it('should fire an error event when search request has an error', (done) => {
         expect.assertions(1);
         const mockEventCallback = jest.fn();
         document.addEventListener('searchComponent:error', mockEventCallback);
+        document.addEventListener('searchComponent:error', () => {
+          expect(mockEventCallback).toHaveBeenCalledWith(
+            new CustomEvent('searchComponent:error', { detail: new Error('an error occured') }));
+          done();
+        });
         const { searchComponent } = createSearchComponent(setupMockReject);
 
-        const searchPromise = searchComponent.search('safsadfasfasf');
+        searchComponent.search('safsadfasfasf');
         jest.advanceTimersByTime(200);
-
-        return searchPromise.then(() => {
-            expect(mockEventCallback).toHaveBeenCalledWith(
-                new CustomEvent('searchComponent:error', { detail: new Error('an error occured') }));
-        });
     });
 
     function setupMockResolve(searchClient) {

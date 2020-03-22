@@ -41,7 +41,7 @@ describe('Sends a search query to the search service and provides the result lis
 
         const client = new SearchClient();
 
-        const searchResult = await client.search([['g'], ['o'], ['o'], ['g'], ['l'], ['e']]);
+        const searchResult = await client.search('google');
 
         expect(searchResult).toEqual(['google.com', 'myaccount.google.com']);
         expect(fetch.mock.calls.length).toEqual(1);
