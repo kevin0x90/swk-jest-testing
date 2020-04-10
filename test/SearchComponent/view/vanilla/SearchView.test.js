@@ -35,7 +35,7 @@ describe('Vanilla javascript search view', () => {
 
     function renderSearchView() {
         const searchComponent = new SearchComponent();
-        const searchView = new SearchView(searchComponent, 'some placehodler text');
+        const searchView = new SearchView(searchComponent, 'some placeholder text');
 
         const searchViewElement = searchView.render();
 

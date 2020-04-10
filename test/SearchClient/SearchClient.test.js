@@ -19,12 +19,28 @@ describe('Sends a search query to the search service and provides the result lis
         expect(fetch.mock.calls.length).toEqual(0);
     });
 
+    it.each`
+      searchQuery  | expectedResult | expectedFetchCalls
+      ${undefined} | ${[]}          | ${0}
+      ${null}      | ${[]}          | ${0}
+    `('should not call fetch', ({ searchQuery, expectedResult, expectedFetchCalls }) => {
+       fetch.mockResponseOnce(JSON.stringify([]));
+
+        const client = new SearchClient();
+
+        return client.search(searchQuery).then((searchResult) => {
+            expect(searchResult).toEqual(expectedResult);
+            expect(fetch.mock.calls.length).toEqual(expectedFetchCalls);
+        });
+    });
+
     it.each([
         [undefined],
         [null],
         [3],
         [{}],
         [''],
+        ['      ']
     ])('should not call fetch for %s', (searchQuery) => {
         fetch.mockResponseOnce(JSON.stringify([]));
 
