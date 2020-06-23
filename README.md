@@ -1,1 +1,1 @@
-# swk-jest-testing
+# Small presentation about jest at the softwerkskammer dusseldorf meetup
